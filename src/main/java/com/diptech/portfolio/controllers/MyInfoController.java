@@ -1,21 +1,20 @@
 package com.diptech.portfolio.controllers;
 
+import com.diptech.portfolio.entities.ContactMe;
 import com.diptech.portfolio.entities.MyInfo;
 import com.diptech.portfolio.services.MyInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/info")
+@RequestMapping("/api")
 public class MyInfoController {
 
     @Autowired
     private MyInfoService myInfoService;
 
-    @GetMapping
+    @GetMapping("/getInfo")
     public ResponseEntity<MyInfo> getFullInfo() {
         MyInfo info = myInfoService.getFullInfo();
         if (info != null) {
@@ -24,5 +23,7 @@ public class MyInfoController {
             return ResponseEntity.notFound().build();
         }
     }
+
+
 
 }

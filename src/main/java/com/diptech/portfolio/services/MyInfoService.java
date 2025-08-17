@@ -1,11 +1,11 @@
 package com.diptech.portfolio.services;
 
+import com.diptech.portfolio.dao.ContactMeRepository;
 import com.diptech.portfolio.dao.MyInfoRepository;
+import com.diptech.portfolio.entities.ContactMe;
 import com.diptech.portfolio.entities.MyInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class MyInfoService {
@@ -16,6 +16,4 @@ public class MyInfoService {
     public MyInfo getFullInfo() {
         return myInfoRepo.findById(1).orElse(null);
     }
-
-
 }
